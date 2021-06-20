@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Chord Map</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+    <!-- Custom CSS -->
+   <link href="css/style.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<style>
+    #chartdiv {
+      width: 100%;
+      height: 700px;
+    }
+</style>
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/spiritedaway.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <script>
+        am4core.ready(function() {
+        
+        // Themes begin
+        am4core.useTheme(am4themes_spiritedaway);
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+        
+        var chart = am4core.create("chartdiv", am4charts.ChordDiagram);
+        
+        // colors of main characters
+        chart.colors.saturation = 0.45;
+        chart.colors.step = 3;
+        var colors = {
+            
+
+            AndhraPradesh: chart.colors.next(),
+            ArunanchalPradesh: chart.colors.next(),
+            Assam: chart.colors.next(),
+            Bihar: chart.colors.next(),
+            Chattisgarh: chart.colors.next(),
+            Goa: chart.colors.next(),
+            Gujarat: chart.colors.next(),
+            Haryana: chart.colors.next(),
+            HimachalPradesh: chart.colors.next(),
+            Jharkhand: chart.colors.next(),
+            Karnataka: chart.colors.next(),
+            Kerela: chart.colors.next(),
+            MadhyaPradesh: chart.colors.next(),
+            Maharashtra: chart.colors.next(),
+            Manipur: chart.colors.next(),
+            Meghalaya: chart.colors.next(),
+            Mizoram: chart.colors.next(),
+            Nagaland: chart.colors.next(),
+            Odisha: chart.colors.next(),
+            Punjab: chart.colors.next(),
+            Rajasthan: chart.colors.next(),
+            Sikkim: chart.colors.next(),
+            TamilNadu: chart.colors.next(),
+            Telangana: chart.colors.next(),
+            Tripura: chart.colors.next(),
+            UttarPradesh: chart.colors.next(),
+            Uttarakhand: chart.colors.next(),
+            WestBengal: chart.colors.next(),
+            
+        }
+        
+        // data was provided by: https://www.reddit.com/user/notrudedude
+        
+        chart.data = [
+        // node property fields take data from data items where they are first mentioned, that's 
+        // why we add empty data items at the beginning and set colors here
+        
+        // real data
+
+        {"from":"Arunanchal Pradesh","to":"Andhra Pradesh","value":3281},
+        {"from":"Assam","to":"Andhra Pradesh","value":2863},
+        {"from":"Bihar","to":"Andhra Pradesh","value":1591},
+        {"from":"Chattisgarh","to":"Andhra Pradesh","value":1015},
+        {"from":"Goa","to":"Andhra Pradesh","value":783},
+        {"from":"Gujarat","to":"Andhra Pradesh","value":1632},
+        {"from":"Haryana","to":"Andhra Pradesh","value":1949},
+        {"from":"Himachal Pradesh","to":"Andhra Pradesh","value":2214},
+        {"from":"Jharkhand","to":"Andhra Pradesh","value":1358},
+        {"from":"Karnataka","to":"Andhra Pradesh","value":541},
+        {"from":"Kerela","to":"Andhra Pradesh","value":931},
+        {"from":"Madhya Pradesh","to":"Andhra Pradesh","value":1114},
+        {"from":"Maharashtra","to":"Andhra Pradesh","value":834},
+        {"from":"Manipur","to":"Andhra Pradesh","value":645},
+        {"from":"Meghalaya","to":"Andhra Pradesh","value":2771},
+        {"from":"Mizoram","to":"Andhra Pradesh","value":3284},
+        {"from":"Nagaland","to":"Andhra Pradesh","value":658},
+        {"from":"Odisha","to":"Andhra Pradesh","value":1051},
+        {"from":"Punjab","to":"Andhra Pradesh","value":2247},
+        {"from":"Rajasthan","to":"Andhra Pradesh","value":1783},
+        {"from":"Sikkim","to":"Andhra Pradesh","value":2371},
+        {"from":"Tamil Nadu","to":"Andhra Pradesh","value":678},
+        {"from":"Telangana","to":"Andhra Pradesh","value":345},
+        {"from":"Tripura","to":"Andhra Pradesh","value":3149},
+        {"from":"Uttar Pradesh","to":"Andhra Pradesh","value":1571},
+        {"from":"Uttarakhand","to":"Andhra Pradesh","value":1991},
+        {"from":"West Bengal","to":"Andhra Pradesh","value":1383},
+        
+        {"from":"Assam","to":"Arunanchal Pradesh","value":602},
+        {"from":"Bihar","to":"Arunanchal Pradesh","value":1545},
+        {"from":"Chattisgarh","to":"Arunanchal Pradesh","value":2194},
+        {"from":"Goa","to":"Arunanchal Pradesh","value":3552},
+        {"from":"Gujarat","to":"Arunanchal Pradesh","value":3382},
+        {"from":"Haryana","to":"Arunanchal Pradesh","value":2634},
+        {"from":"Himachal Pradesh","to":"Arunanchal Pradesh","value":2860},
+        {"from":"Jharkhand","to":"Arunanchal Pradesh","value":1687},
+        {"from":"Karnataka","to":"Arunanchal Pradesh","value":3468},
+        {"from":"Kerela","to":"Arunanchal Pradesh","value":4049},
+        {"from":"Madhya Pradesh","to":"Arunanchal Pradesh","value":2384},
+        {"from":"Maharashtra","to":"Arunanchal Pradesh","value":2962},
+        {"from":"Manipur","to":"Arunanchal Pradesh","value":727},
+        {"from":"Meghalaya","to":"Arunanchal Pradesh","value":830},
+        {"from":"Mizoram","to":"Arunanchal Pradesh","value":1078},
+        {"from":"Nagaland","to":"Arunanchal Pradesh","value":475},
+        {"from":"Odisha","to":"Arunanchal Pradesh","value":2006},
+        {"from":"Punjab","to":"Arunanchal Pradesh","value":2893},
+        {"from":"Rajasthan","to":"Arunanchal Pradesh","value":2762},
+        {"from":"Sikkim","to":"Arunanchal Pradesh","value":1178},
+        {"from":"Tamil Nadu","to":"Arunanchal Pradesh","value":3902},
+        {"from":"Telangana","to":"Arunanchal Pradesh","value":2934},
+        {"from":"Tripura","to":"Arunanchal Pradesh","value":1016},
+        {"from":"Uttar Pradesh","to":"Arunanchal Pradesh","value":1966},
+        {"from":"Uttarakhand","to":"Arunanchal Pradesh","value":2361},
+        {"from":"West Bengal","to":"Arunanchal Pradesh","value":1566},
+        
+        
+        {"from":"Bihar","to":"Assam","value":1099},
+        {"from":"Chattisgarh","to":"Assam","value":1749},
+        {"from":"Goa","to":"Assam","value":3106},
+        {"from":"Gujarat","to":"Assam","value":2936},
+        {"from":"Haryana","to":"Assam","value":2188},
+        {"from":"Himachal Pradesh","to":"Assam","value":2414},
+        {"from":"Jharkhand","to":"Assam","value":1241},
+        {"from":"Karnataka","to":"Assam","value":3022},
+        {"from":"Kerela","to":"Assam","value":3603},
+        {"from":"Madhya Pradesh","to":"Assam","value":1938},
+        {"from":"Maharashtra","to":"Assam","value":2516},
+        {"from":"Manipur","to":"Assam","value":339},
+        {"from":"Meghalaya","to":"Assam","value":323},
+        {"from":"Mizoram","to":"Assam","value":571},
+        {"from":"Nagaland","to":"Assam","value":2328},
+        {"from":"Odisha","to":"Assam","value":1560},
+        {"from":"Punjab","to":"Assam","value":2447},
+        {"from":"Rajasthan","to":"Assam","value":2316},
+        {"from":"Sikkim","to":"Assam","value":732},
+        {"from":"Tamil Nadu","to":"Assam","value":3456},
+        {"from":"Telangana","to":"Assam","value":2488},
+        {"from":"Tripura","to":"Assam","value":453},
+        {"from":"Uttar Pradesh","to":"Assam","value":1520},
+        {"from":"Uttarakhand","to":"Assam","value":1924},
+        {"from":"West Bengal","to":"Assam","value":1120},
+        
+
+        {"from":"Chattisgarh","to":"Bihar","value":664},
+        {"from":"Goa","to":"Bihar","value":2101},
+        {"from":"Gujarat","to":"Bihar","value":1785},
+        {"from":"Haryana","to":"Bihar","value":1283},
+        {"from":"Himachal Pradesh","to":"Bihar","value":1508},
+        {"from":"Jharkhand","to":"Bihar","value":239},
+        {"from":"Karnataka","to":"Bihar","value":2017},
+        {"from":"Kerela","to":"Bihar","value":2598},
+        {"from":"Madhya Pradesh","to":"Bihar","value":933},
+        {"from":"Maharashtra","to":"Bihar","value":1511},
+        {"from":"Manipur","to":"Bihar","value":1413},
+        {"from":"Meghalaya","to":"Bihar","value":986},
+        {"from":"Mizoram","to":"Bihar","value":1499},
+        {"from":"Nagaland","to":"Bihar","value":1160},
+        {"from":"Odisha","to":"Bihar","value":692},
+        {"from":"Punjab","to":"Bihar","value":1541},
+        {"from":"Rajasthan","to":"Bihar","value":1410},
+        {"from":"Sikkim","to":"Bihar","value":585},
+        {"from":"Tamil Nadu","to":"Bihar","value":2188},
+        {"from":"Telangana","to":"Bihar","value":1483},
+        {"from":"Tripura","to":"Bihar","value":1363},
+        {"from":"Uttar Pradesh","to":"Bihar","value":604},
+        {"from":"Uttarakhand","to":"Bihar","value":1015},
+        {"from":"West Bengal","to":"Bihar","value":407},
+
+        {"from":"Goa","to":"Chattisgarh","value":1400},
+        {"from":"Gujarat","to":"Chattisgarh","value":1417},
+        {"from":"Haryana","to":"Chattisgarh","value":1262},
+        {"from":"Himachal Pradesh","to":"Chattisgarh","value":1527},
+        {"from":"Jharkhand","to":"Chattisgarh","value":534},
+        {"from":"Karnataka","to":"Chattisgarh","value":1363},
+        {"from":"Kerela","to":"Chattisgarh","value":1945},
+        {"from":"Madhya Pradesh","to":"Chattisgarh","value":468},
+        {"from":"Maharashtra","to":"Chattisgarh","value":838},
+        {"from":"Manipur","to":"Chattisgarh","value":2086},
+        {"from":"Meghalaya","to":"Chattisgarh","value":1658},
+        {"from":"Mizoram","to":"Chattisgarh","value":2171},
+        {"from":"Nagaland","to":"Chattisgarh","value":2957},
+        {"from":"Odisha","to":"Chattisgarh","value":429},
+        {"from":"Punjab","to":"Chattisgarh","value":1561},
+        {"from":"Rajasthan","to":"Chattisgarh","value":1311},
+        {"from":"Sikkim","to":"Chattisgarh","value":1258},
+        {"from":"Tamil Nadu","to":"Chattisgarh","value":1610},
+        {"from":"Telangana","to":"Chattisgarh","value":867},
+        {"from":"Tripura","to":"Chattisgarh","value":2036},
+        {"from":"Uttar Pradesh","to":"Chattisgarh","value":714},
+        {"from":"Uttarakhand","to":"Chattisgarh","value":1122},
+        {"from":"West Bengal","to":"Chattisgarh","value":786},
+
+
+        {"from":"Gujarat","to":"Goa","value":1247},
+        {"from":"Haryana","to":"Goa","value":1934},
+        {"from":"Himachal Pradesh","to":"Goa","value":2209},
+        {"from":"Jharkhand","to":"Goa","value":1974},
+        {"from":"Karnataka","to":"Goa","value":254},
+        {"from":"Kerela","to":"Goa","value":679},
+        {"from":"Madhya Pradesh","to":"Goa","value":1258},
+        {"from":"Maharashtra","to":"Goa","value":659},
+        {"from":"Manipur","to":"Goa","value":1225},
+        {"from":"Meghalaya","to":"Goa","value":3047},
+        {"from":"Mizoram","to":"Goa","value":3560},
+        {"from":"Nagaland","to":"Goa","value":1241},
+        {"from":"Odisha","to":"Goa","value":1731},
+        {"from":"Punjab","to":"Goa","value":2165},
+        {"from":"Rajasthan","to":"Goa","value":1607},
+        {"from":"Sikkim","to":"Goa","value":2646},
+        {"from":"Tamil Nadu","to":"Goa","value":908},
+        {"from":"Telangana","to":"Goa","value":762},
+        {"from":"Tripura","to":"Goa","value":3425},
+        {"from":"Uttar Pradesh","to":"Goa","value":1831},
+        {"from":"Uttarakhand","to":"Goa","value":2019},
+        {"from":"West Bengal","to":"Goa","value":2247},
+
+        {"from":"Haryana","to":"Gujarat","value":1103},
+        {"from":"Himachal Pradesh","to":"Gujarat","value":1408},
+        {"from":"Jharkhand","to":"Gujarat","value":1915},
+        {"from":"Karnataka","to":"Gujarat","value":1317},
+        {"from":"Kerela","to":"Gujarat","value":1949},
+        {"from":"Madhya Pradesh","to":"Gujarat","value":955},
+        {"from":"Maharashtra","to":"Gujarat","value":855},
+        {"from":"Manipur","to":"Gujarat","value":354},
+        {"from":"Meghalaya","to":"Gujarat","value":2785},
+        {"from":"Mizoram","to":"Gujarat","value":3339},
+        {"from":"Nagaland","to":"Gujarat","value":239},
+        {"from":"Odisha","to":"Gujarat","value":1775},
+        {"from":"Punjab","to":"Gujarat","value":1306},
+        {"from":"Rajasthan","to":"Gujarat","value":744},
+        {"from":"Sikkim","to":"Gujarat","value":2384},
+        {"from":"Tamil Nadu","to":"Gujarat","value":1971},
+        {"from":"Telangana","to":"Gujarat","value":1314},
+        {"from":"Tripura","to":"Gujarat","value":3204},
+        {"from":"Uttar Pradesh","to":"Gujarat","value":1400},
+        {"from":"Uttarakhand","to":"Gujarat","value":1397},
+        {"from":"West Bengal","to":"Gujarat","value":2110},
+
+        {"from":"Himachal Pradesh","to":"Haryana","value":351},
+        {"from":"Jharkhand","to":"Haryana","value":1387},
+        {"from":"Karnataka","to":"Haryana","value":1998},
+        {"from":"Kerela","to":"Haryana","value":2724},
+        {"from":"Madhya Pradesh","to":"Haryana","value":908},
+        {"from":"Maharashtra","to":"Haryana","value":1358},
+        {"from":"Manipur","to":"Haryana","value":779},
+        {"from":"Meghalaya","to":"Haryana","value":2103},
+        {"from":"Mizoram","to":"Haryana","value":2616},
+        {"from":"Nagaland","to":"Haryana","value":534},
+        {"from":"Odisha","to":"Haryana","value":1683},
+        {"from":"Punjab","to":"Haryana","value":313},
+        {"from":"Rajasthan","to":"Haryana","value":361},
+        {"from":"Sikkim","to":"Haryana","value":1703},
+        {"from":"Tamil Nadu","to":"Haryana","value":2576},
+        {"from":"Telangana","to":"Haryana","value":1609},
+        {"from":"Tripura","to":"Haryana","value":2481},
+        {"from":"Uttar Pradesh","to":"Haryana","value":676},
+        {"from":"Uttarakhand","to":"Haryana","value":461},
+        {"from":"West Bengal","to":"Haryana","value":1582},
+
+        {"from":"Jharkhand","to":"Himachal Pradesh","value":1612},
+        {"from":"Karnataka","to":"Himachal Pradesh","value":2197},
+        {"from":"Kerela","to":"Himachal Pradesh","value":2986},
+        {"from":"Madhya Pradesh","to":"Himachal Pradesh","value":1171},
+        {"from":"Maharashtra","to":"Himachal Pradesh","value":1632},
+        {"from":"Manipur","to":"Himachal Pradesh","value":2756},
+        {"from":"Meghalaya","to":"Himachal Pradesh","value":2328},
+        {"from":"Mizoram","to":"Himachal Pradesh","value":2841},
+        {"from":"Nagaland","to":"Himachal Pradesh","value":908},
+        {"from":"Odisha","to":"Himachal Pradesh","value":1908},
+        {"from":"Punjab","to":"Himachal Pradesh","value":288},
+        {"from":"Rajasthan","to":"Himachal Pradesh","value":668},
+        {"from":"Sikkim","to":"Himachal Pradesh","value":1928},
+        {"from":"Tamil Nadu","to":"Himachal Pradesh","value":2839},
+        {"from":"Telangana","to":"Himachal Pradesh","value":1872},
+        {"from":"Tripura","to":"Himachal Pradesh","value":2706},
+        {"from":"Uttar Pradesh","to":"Himachal Pradesh","value":901},
+        {"from":"Uttarakhand","to":"Himachal Pradesh","value":553},
+        {"from":"West Bengal","to":"Himachal Pradesh","value":1807},
+
+
+        {"from":"Karnataka","to":"Jharkhand","value":1883},
+        {"from":"Kerela","to":"Jharkhand","value":2260},
+        {"from":"Madhya Pradesh","to":"Jharkhand","value":1015},
+        {"from":"Maharashtra","to":"Jharkhand","value":1388},
+        {"from":"Manipur","to":"Jharkhand","value":1587},
+        {"from":"Meghalaya","to":"Jharkhand","value":1160},
+        {"from":"Mizoram","to":"Jharkhand","value":1673},
+        {"from":"Nagaland","to":"Jharkhand","value":1971},
+        {"from":"Odisha","to":"Jharkhand","value":466},
+        {"from":"Punjab","to":"Jharkhand","value":1632},
+        {"from":"Rajasthan","to":"Jharkhand","value":1501},
+        {"from":"Sikkim","to":"Jharkhand","value":759},
+        {"from":"Tamil Nadu","to":"Jharkhand","value":1962},
+        {"from":"Telangana","to":"Jharkhand","value":1193},
+        {"from":"Tripura","to":"Jharkhand","value":1537},
+        {"from":"Uttar Pradesh","to":"Jharkhand","value":716},
+        {"from":"Uttarakhand","to":"Jharkhand","value":1123},
+        {"from":"West Bengal","to":"Jharkhand","value":344},
+
+        
+        {"from":"Kerela","to":"Karnataka","value":669},
+        {"from":"Madhya Pradesh","to":"Karnataka","value":1300},
+        {"from":"Maharashtra","to":"Karnataka","value":596},
+        {"from":"Manipur","to":"Karnataka","value":1297},
+        {"from":"Meghalaya","to":"Karnataka","value":2957},
+        {"from":"Mizoram","to":"Karnataka","value":3469},
+        {"from":"Nagaland","to":"Karnataka","value":2576},
+        {"from":"Odisha","to":"Karnataka","value":1519},
+        {"from":"Punjab","to":"Karnataka","value":2162},
+        {"from":"Rajasthan","to":"Karnataka","value":1604},
+        {"from":"Sikkim","to":"Karnataka","value":2556},
+        {"from":"Tamil Nadu","to":"Karnataka","value":691},
+        {"from":"Telangana","to":"Karnataka","value":592},
+        {"from":"Tripura","to":"Karnataka","value":3334},
+        {"from":"Uttar Pradesh","to":"Karnataka","value":1756},
+        {"from":"Uttarakhand","to":"Karnataka","value":2016},
+        {"from":"West Bengal","to":"Karnataka","value":1951},
+
+        {"from":"Madhya Pradesh","to":"Kerela","value":1880},
+        {"from":"Maharashtra","to":"Kerela","value":1261},
+        {"from":"Manipur","to":"Kerela","value":3964},
+        {"from":"Meghalaya","to":"Kerela","value":3537},
+        {"from":"Mizoram","to":"Kerela","value":4050},
+        {"from":"Nagaland","to":"Kerela","value":2231},
+        {"from":"Odisha","to":"Kerela","value":1899},
+        {"from":"Punjab","to":"Kerela","value":3013},
+        {"from":"Rajasthan","to":"Kerela","value":2348},
+        {"from":"Sikkim","to":"Kerela","value":3136},
+        {"from":"Tamil Nadu","to":"Kerela","value":310},
+        {"from":"Telangana","to":"Kerela","value":1172},
+        {"from":"Tripura","to":"Kerela","value":3914},
+        {"from":"Uttar Pradesh","to":"Kerela","value":2337},
+        {"from":"Uttarakhand","to":"Kerela","value":2757},
+        {"from":"West Bengal","to":"Kerela","value":2231},
+
+        
+        {"from":"Maharashtra","to":"Madhya Pradesh","value":623},
+        {"from":"Manipur","to":"Madhya Pradesh","value":2299},
+        {"from":"Meghalaya","to":"Madhya Pradesh","value":1871},
+        {"from":"Mizoram","to":"Madhya Pradesh","value":2384},
+        {"from":"Nagaland","to":"Madhya Pradesh","value":1439},
+        {"from":"Odisha","to":"Madhya Pradesh","value":914},
+        {"from":"Punjab","to":"Madhya Pradesh","value":1198},
+        {"from":"Rajasthan","to":"Madhya Pradesh","value":790},
+        {"from":"Sikkim","to":"Madhya Pradesh","value":1471},
+        {"from":"Tamil Nadu","to":"Madhya Pradesh","value":1733},
+        {"from":"Telangana","to":"Madhya Pradesh","value":765},
+        {"from":"Tripura","to":"Madhya Pradesh","value":2249},
+        {"from":"Uttar Pradesh","to":"Madhya Pradesh","value":671},
+        {"from":"Uttarakhand","to":"Madhya Pradesh","value":942},
+        {"from":"West Bengal","to":"Madhya Pradesh","value":1243},
+
+        {"from":"Manipur","to":"Maharashtra","value":2854},
+        {"from":"Meghalaya","to":"Maharashtra","value":2427},
+        {"from":"Mizoram","to":"Maharashtra","value":2939},
+        {"from":"Nagaland","to":"Maharashtra","value":2601},
+        {"from":"Odisha","to":"Maharashtra","value":1170},
+        {"from":"Punjab","to":"Maharashtra","value":1603},
+        {"from":"Rajasthan","to":"Maharashtra","value":1045},
+        {"from":"Sikkim","to":"Maharashtra","value":2026},
+        {"from":"Tamil Nadu","to":"Maharashtra","value":1223},
+        {"from":"Telangana","to":"Maharashtra","value":488},
+        {"from":"Tripura","to":"Maharashtra","value":2804},
+        {"from":"Uttar Pradesh","to":"Maharashtra","value":1269},
+        {"from":"Uttarakhand","to":"Maharashtra","value":1457},
+        {"from":"West Bengal","to":"Maharashtra","value":1612},
+
+        {"from":"Meghalaya","to":"Manipur","value":658},
+        {"from":"Mizoram","to":"Manipur","value":464},
+        {"from":"Nagaland","to":"Manipur","value":795},
+        {"from":"Odisha","to":"Manipur","value":1896},
+        {"from":"Punjab","to":"Manipur","value":2783},
+        {"from":"Rajasthan","to":"Manipur","value":2652},
+        {"from":"Sikkim","to":"Manipur","value":1067},
+        {"from":"Tamil Nadu","to":"Manipur","value":3791},
+        {"from":"Telangana","to":"Manipur","value":2824},
+        {"from":"Tripura","to":"Manipur","value":442},
+        {"from":"Uttar Pradesh","to":"Manipur","value":1856},
+        {"from":"Uttarakhand","to":"Manipur","value":2261},
+        {"from":"West Bengal","to":"Manipur","value":1456},
+
+        
+        {"from":"Mizoram","to":"Meghalaya","value":583},
+        {"from":"Nagaland","to":"Meghalaya","value":1599},
+        {"from":"Odisha","to":"Meghalaya","value":1468},
+        {"from":"Punjab","to":"Meghalaya","value":2355},
+        {"from":"Rajasthan","to":"Meghalaya","value":2224},
+        {"from":"Sikkim","to":"Meghalaya","value":640},
+        {"from":"Tamil Nadu","to":"Meghalaya","value":3364},
+        {"from":"Telangana","to":"Meghalaya","value":2397},
+        {"from":"Tripura","to":"Meghalaya","value":448},
+        {"from":"Uttar Pradesh","to":"Meghalaya","value":1428},
+        {"from":"Uttarakhand","to":"Meghalaya","value":1832},
+        {"from":"West Bengal","to":"Meghalaya","value":1028},
+
+        
+        {"from":"Nagaland","to":"Mizoram","value":2207},
+        {"from":"Odisha","to":"Mizoram","value":1981},
+        {"from":"Punjab","to":"Mizoram","value":2868},
+        {"from":"Rajasthan","to":"Mizoram","value":2737},
+        {"from":"Sikkim","to":"Mizoram","value":1153},
+        {"from":"Tamil Nadu","to":"Mizoram","value":3877},
+        {"from":"Telangana","to":"Mizoram","value":2909},
+        {"from":"Tripura","to":"Mizoram","value":366},
+        {"from":"Uttar Pradesh","to":"Mizoram","value":1941},
+        {"from":"Uttarakhand","to":"Mizoram","value":2345},
+        {"from":"West Bengal","to":"Mizoram","value":1541},
+
+        
+        {"from":"Odisha","to":"Nagaland","value":758},
+        {"from":"Punjab","to":"Nagaland","value":3391},
+        {"from":"Rajasthan","to":"Nagaland","value":1827},
+        {"from":"Sikkim","to":"Nagaland","value":616},
+        {"from":"Tamil Nadu","to":"Nagaland","value":2801},
+        {"from":"Telangana","to":"Nagaland","value":1259},
+        {"from":"Tripura","to":"Nagaland","value":1627},
+        {"from":"Uttar Pradesh","to":"Nagaland","value":1243},
+        {"from":"Uttarakhand","to":"Nagaland","value":1612},
+        {"from":"West Bengal","to":"Nagaland","value":1456},
+
+
+        {"from":"Punjab","to":"Odisha","value":1934},
+        {"from":"Rajasthan","to":"Odisha","value":1763},
+        {"from":"Sikkim","to":"Odisha","value":1081},
+        {"from":"Tamil Nadu","to":"Odisha","value":1638},
+        {"from":"Telangana","to":"Odisha","value":958},
+        {"from":"Tripura","to":"Odisha","value":1859},
+        {"from":"Uttar Pradesh","to":"Odisha","value":1018},
+        {"from":"Uttarakhand","to":"Odisha","value":1426},
+        {"from":"West Bengal","to":"Odisha","value":464},
+
+        {"from":"Rajasthan","to":"Punjab","value":589},
+        {"from":"Sikkim","to":"Punjab","value":1964},
+        {"from":"Tamil Nadu","to":"Punjab","value":2857},
+        {"from":"Telangana","to":"Punjab","value":1908},
+        {"from":"Tripura","to":"Punjab","value":2742},
+        {"from":"Uttar Pradesh","to":"Punjab","value":937},
+        {"from":"Uttarakhand","to":"Punjab","value":677},
+        {"from":"West Bengal","to":"Punjab","value":1843},
+
+        {"from":"Sikkim","to":"Rajasthan","value":1794},
+        {"from":"Tamil Nadu","to":"Rajasthan","value":2401},
+        {"from":"Telangana","to":"Rajasthan","value":1441},
+        {"from":"Tripura","to":"Rajasthan","value":2572},
+        {"from":"Uttar Pradesh","to":"Rajasthan","value":767},
+        {"from":"Uttarakhand","to":"Rajasthan","value":771},
+        {"from":"West Bengal","to":"Rajasthan","value":1673},
+
+        {"from":"Tamil Nadu","to":"Sikkim","value":2963},
+        {"from":"Telangana","to":"Sikkim","value":1996},
+        {"from":"Tripura","to":"Sikkim","value":1018},
+        {"from":"Uttar Pradesh","to":"Sikkim","value":1028},
+        {"from":"Uttarakhand","to":"Sikkim","value":1432},
+        {"from":"West Bengal","to":"Sikkim","value":632},
+
+        {"from":"Telangana","to":"Tamil Nadu","value":1024},
+        {"from":"Tripura","to":"Tamil Nadu","value":3424},
+        {"from":"Uttar Pradesh","to":"Tamil Nadu","value":2189},
+        {"from":"Uttarakhand","to":"Tamil Nadu","value":2609},
+        {"from":"West Bengal","to":"Tamil Nadu","value":1972},
+
+        {"from":"Tripura","to":"Telangana","value":2804},
+        {"from":"Uttar Pradesh","to":"Telangana","value":1282},
+        {"from":"Uttarakhand","to":"Telangana","value":1647},
+        {"from":"West Bengal","to":"Telangana","value":1489},
+
+        {"from":"Uttar Pradesh","to":"Tripura","value":1805},
+        {"from":"Uttarakhand","to":"Tripura","value":2209},
+        {"from":"West Bengal","to":"Tripura","value":1405},
+
+        
+        {"from":"Uttarakhand","to":"Uttar Pradesh","value":409},
+        {"from":"West Bengal","to":"Uttar Pradesh","value":919},
+
+        
+        {"from":"West Bengal","to":"Uttarakhand","value":1523},
+
+        ]
+        
+        
+        
+        chart.dataFields.fromName = "from";
+        chart.dataFields.toName = "to";
+        chart.dataFields.value = "value";
+        
+        
+        chart.nodePadding = 1;
+        chart.minNodeSize = 0.01;
+        chart.startAngle = 80;
+        chart.endAngle = chart.startAngle + 360;
+        chart.sortBy = "value";
+        chart.fontSize = 10;
+        
+        var nodeTemplate = chart.nodes.template;
+        nodeTemplate.readerTitle = "Click to show/hide or drag to rearrange";
+        nodeTemplate.showSystemTooltip = true;
+        nodeTemplate.propertyFields.fill = "color";
+        nodeTemplate.tooltipText = "{name}'s Total Distance {total}km";
+        
+        // when rolled over the node, make all the links rolled-over
+        nodeTemplate.events.on("over", function(event) {    
+            var node = event.target;
+            node.outgoingDataItems.each(function(dataItem) {
+                if(dataItem.toNode){
+                    dataItem.link.isHover = true;
+                    dataItem.toNode.label.isHover = true;
+                }
+            })
+            node.incomingDataItems.each(function(dataItem) {
+                if(dataItem.fromNode){
+                    dataItem.link.isHover = true;
+                    dataItem.fromNode.label.isHover = true;
+                }
+            }) 
+        
+            node.label.isHover = true;   
+        })
+        
+        // when rolled out from the node, make all the links rolled-out
+        nodeTemplate.events.on("out", function(event) {
+            var node = event.target;
+            node.outgoingDataItems.each(function(dataItem) {        
+                if(dataItem.toNode){
+                    dataItem.link.isHover = false;                
+                    dataItem.toNode.label.isHover = false;
+                }
+            })
+            node.incomingDataItems.each(function(dataItem) {
+                if(dataItem.fromNode){
+                    dataItem.link.isHover = false;
+                   dataItem.fromNode.label.isHover = false;
+                }
+            })
+        
+            node.label.isHover = false;
+        })
+        
+        var label = nodeTemplate.label;
+        label.relativeRotation = 90;
+        
+        label.fillOpacity = 0.4;
+        let labelHS = label.states.create("hover");
+        labelHS.properties.fillOpacity = 1;
+        
+        nodeTemplate.cursorOverStyle = am4core.MouseCursorStyle.pointer;
+        // this adapter makes non-main character nodes to be filled with color of the main character which he/she kissed most
+        nodeTemplate.adapter.add("fill", function(fill, target) {
+            let node = target;
+            let counters = {};
+            let mainChar = false;
+            node.incomingDataItems.each(function(dataItem) {
+                if(colors[dataItem.toName]){
+                    mainChar = true;
+                }
+        
+                if(isNaN(counters[dataItem.fromName])){
+                    counters[dataItem.fromName] = dataItem.value;
+                }
+                else{
+                    counters[dataItem.fromName] += dataItem.value;
+                }
+            })
+            if(mainChar){
+                return fill;
+            }
+        
+            let count = 0;
+            let color;
+            let biggest = 0;
+            let biggestName;
+        
+            for(var name in counters){
+                if(counters[name] > biggest){
+                    biggestName = name;
+                    biggest = counters[name]; 
+                }        
+            }
+            if(colors[biggestName]){
+                fill = colors[biggestName];
+            }
+          
+            return fill;
+        })
+        
+        // link template
+        var linkTemplate = chart.links.template;
+        linkTemplate.strokeOpacity = 0;
+        linkTemplate.fillOpacity = 0.15;
+        linkTemplate.tooltipText = "{fromName} & {toName} Distance : {value.value}km";
+        
+        var hoverState = linkTemplate.states.create("hover");
+        hoverState.properties.fillOpacity = 0.7;
+        hoverState.properties.strokeOpacity = 0.7;
+        
+        // data credit label
+        var creditLabel = chart.chartContainer.createChild(am4core.TextLink);
+        creditLabel.text = "Data source: notrudedude";
+        creditLabel.url = "https://www.reddit.com/user/notrudedude";
+        creditLabel.y = am4core.percent(99);
+        creditLabel.x = am4core.percent(99);
+        creditLabel.horizontalCenter = "right";
+        creditLabel.verticalCenter = "bottom";
+        
+        
+        }); // end am4core.ready()
+        </script>
+        
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="dashboard.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!-- Dark Logo icon -->
+                            <img src="plugins/images/logo-icon.png" alt="homepage" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text px-3" style="color: white; background:#343a40;">
+                                 Vaccine Cold Storage
+                            <!-- dark Logo text -->
+                            <!-- <img src="plugins/images/logo-text.png" alt="homepage" /> -->
+                        </span>
+                    </a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                   
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    
+                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class=" in">
+                            <form role="search" class="app-search d-none d-md-block me-3">
+                                <input type="text" placeholder="Search..." class="form-control mt-0">
+                                <a href="" class="active">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </form>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li>
+                            <a class="profile-pic" href="#">
+                                <img src="plugins/images/users/ninad.jpg" alt="user-img" width="36"
+                                    class="img-circle"><span class="text-white font-medium">Ninad Kanchan</span></a>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li class="sidebar-item pt-2">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
+                                aria-expanded="false">
+                                <i class="fas fa-map" aria-hidden="true"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="stateCentres.html"
+                                aria-expanded="false">
+                                <i class="fas fa-map-signs " aria-hidden="true"></i>
+                                <span class="hide-menu">State Centers</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="locationMap.html"
+                                aria-expanded="false">
+                                <i class="fas fa-map-pin" aria-hidden="true"></i>
+                                <span class="hide-menu">Location Map Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="vaccinationCamp.html"
+                                aria-expanded="false">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <span class="hide-menu">Vaccination Camp Info</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cMap.html"
+                                aria-expanded="false">
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                <span class="hide-menu">Chord Map Of India</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Dashboard</h4>
+                    </div>
+                    
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                
+                <!-- ============================================================== -->
+                <!-- PRODUCTS YEARLY SALES -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="white-box">
+                            <div class="d-md-flex mb-3">
+                                <h3 class="box-title mb-0">Chord Map</h3>
+                                
+                            </div>
+                            
+                            <div id="chartdiv"></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center"> Made By Ninad Ish & Nikhil for Vaccine Supply Chain Management
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app-style-switcher.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.js"></script>
+</body>
+
+</html>

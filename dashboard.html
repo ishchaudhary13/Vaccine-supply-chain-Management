@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Vaccine Supply Dashboard</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+    <!-- Custom CSS -->
+    <link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <style>
+        #chartdiv {
+          width: 100%;
+          height: 700px;
+        }
+    </style>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+    
+    <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/spiritedaway.js"></script>
+    
+    
+</head>
+
+<body>
+
+    <!-- MAP SCRIPT -->
+    <script>
+        am4core.ready(function() {
+        
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+
+
+        //am4core.useTheme(am4themes_dataviz);
+        //am4core.useTheme(am4themes_dark);
+        //am4core.useTheme(am4themes_spiritedaway);
+        
+
+        
+
+
+
+
+        // Themes end
+        
+        // Create map instance
+        var chart = am4core.create("chartdiv", am4maps.MapChart);
+        chart.geodata = am4geodata_worldLow;
+        chart.projection = new am4maps.projections.Miller();
+        chart.homeZoomLevel = 6;
+        chart.homeGeoPoint = {
+            latitude: 20.5937,
+            longitude: 78.9629
+        };
+        
+        // Create map polygon series
+        var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+        polygonSeries.useGeodata = true;
+        polygonSeries.mapPolygons.template.fill = chart.colors.getIndex(0).lighten(0.5);
+        polygonSeries.mapPolygons.template.nonScalingStroke = true;
+        polygonSeries.exclude = ["AQ"];
+        
+        // Add line bullets
+        var cities = chart.series.push(new am4maps.MapImageSeries());
+        cities.mapImages.template.nonScaling = true;
+        
+        var city = cities.mapImages.template.createChild(am4core.Circle);
+        city.radius = 6;
+        city.fill = chart.colors.getIndex(0).brighten(-0.2);
+        city.strokeWidth = 2;
+        city.stroke = am4core.color("#fff");
+        
+        function addCity(coords, title) {
+            var city = cities.mapImages.create();
+            city.latitude = coords.latitude;
+            city.longitude = coords.longitude;
+            city.tooltipText = title;
+            return city;
+        }
+
+
+
+
+
+
+        var Guntur = addCity({ "latitude": 16.3067, "longitude": 80.4365 }, "Guntur, Andhra Pradesh");
+        var WestSiang = addCity({ "latitude": 28.1473, "longitude": 94.7485 }, "WestSiang, Arunachal Pradesh");
+        var Charaideo = addCity({ "latitude": 26.933, "longitude":  94.7481 }, "Charaideo, Assam");
+        var samastipur = addCity({ "latitude": 25.856, "longitude": 85.7868 }, "Samastipur, Bihar");
+        var raipur = addCity({ "latitude": 21.2514, "longitude": 81.6296 }, "Raipur, Chattisgarh");
+        var Vadodara = addCity({ "latitude": 22.3072, "longitude": 73.1812 }, "Vadodara, Gujarat");
+        var Jind = addCity({ "latitude": 29.3255, "longitude": 76.2998 }, "Jind, Haryana");
+        var Mandi = addCity({ "latitude": 31.5892, "longitude": 76.9182 }, "Mandi, Himachal Pradesh");
+        var Dhanbad = addCity({ "latitude": 23.7957, "longitude": 86.4304 }, "Dhanbad, Jharkhand");
+        var Haveri = addCity({ "latitude": 14.7951, "longitude": 75.3991 }, "Haveri, Karnataka");
+        var Ernakulam = addCity({ "latitude": 9.9816, "longitude": 76.2999 }, "Ernakulam, Kerela");
+        var Bhopal = addCity({ "latitude": 23.2599, "longitude": 77.4126 }, "Bhopal, Madhya Pradesh");
+        var Jalna = addCity({ "latitude": 19.8347, "longitude": 75.8816 }, "Jalna, Maharashtra");
+        var ImphalWest = addCity({ "latitude": 24.7828, "longitude": 93.8859 }, "ImphalWest, Manipur");
+        var WestKhasiHils = addCity({ "latitude": 25.5625, "longitude": 91.2891 }, "WestKhasiHils, Meghalaya");
+        var Serchhip = addCity({ "latitude": 23.3417, "longitude": 92.8502 }, "Serchhip, Mizoram");
+        var Mokokchung = addCity({ "latitude": 26.322, "longitude": 94.5135 }, "Mokokchung, Nagaland");
+        var Nayagarh = addCity({ "latitude": 20.1231, "longitude": 85.1038 }, "Nayagarh, Odisha");
+        var Ludhiana = addCity({ "latitude": 30.901, "longitude":  75.8573 }, "Ludhiana, Punjab");
+        var Ajmer = addCity({ "latitude": 26.4499, "longitude": 74.6399 }, "Ajmer, Rajasthan");
+        var SouthSikkim = addCity({ "latitude": 27.2858, "longitude": 88.3946 }, "SouthSikkim, Sikkim");
+        var Namakkal = addCity({ "latitude": 11.2189, "longitude": 78.1674 }, "Namakkal, Tamil Nadu");
+        var Jangaon = addCity({ "latitude": 17.7227, "longitude": 79.1518 }, "Jangaon, Telangana");
+        var Khowai = addCity({ "latitude": 24.0672, "longitude":  91.6057 }, "Khowai, Tripura");
+        var Unnao = addCity({ "latitude": 26.5393, "longitude": 80.4878 }, "Unnao, Uttar Pradesh");
+        var Rudraprayag = addCity({ "latitude": 30.2844, "longitude": 78.9811 }, "Rudraprayag, Uttarakhand");
+        var PurbaBurdwan = addCity({ "latitude": 23.239, "longitude": 87.8695 }, "PurbaBurdwan, West Bengal");
+
+
+
+        
+        /* var paris = addCity({ "latitude": 48.8567, "longitude": 2.3510 }, "Paris");
+        var toronto = addCity({ "latitude": 43.8163, "longitude": -79.4287 }, "Toronto");
+        var la = addCity({ "latitude": 34.3, "longitude": -118.15 }, "Los Angeles");
+        var havana = addCity({ "latitude": 23, "longitude": -82 }, "Havana"); */
+        
+        // Add lines
+        var lineSeries = chart.series.push(new am4maps.MapArcSeries());
+        lineSeries.mapLines.template.line.strokeWidth = 2;
+        lineSeries.mapLines.template.line.strokeOpacity = 0.5;
+        lineSeries.mapLines.template.line.stroke = city.fill;
+        lineSeries.mapLines.template.line.nonScalingStroke = true;
+        lineSeries.mapLines.template.line.strokeDasharray = "0.2,0.2";
+        lineSeries.zIndex = 10;
+        
+        var shadowLineSeries = chart.series.push(new am4maps.MapLineSeries());
+        shadowLineSeries.mapLines.template.line.strokeOpacity = 0;
+        shadowLineSeries.mapLines.template.line.nonScalingStroke = true;
+        shadowLineSeries.mapLines.template.shortestDistance = false;
+        shadowLineSeries.zIndex = 5;
+        
+        function addLine(from, to) {
+            var line = lineSeries.mapLines.create();
+            line.imagesToConnect = [from, to];
+            line.line.controlPointDistance = -0.1;
+        
+            var shadowLine = shadowLineSeries.mapLines.create();
+            shadowLine.imagesToConnect = [from, to];
+        
+            return line;
+        }
+        
+        addLine(Bhopal, 	Guntur	);
+        addLine(Bhopal, 	WestSiang	);
+        addLine(Bhopal, 	Charaideo	);
+        addLine(Bhopal, 	samastipur	);
+        addLine(Bhopal, 	raipur	);
+        addLine(Bhopal, 	Vadodara	);
+        addLine(Bhopal, 	Jind	);
+        addLine(Bhopal, 	Mandi	);
+        addLine(Bhopal, 	Dhanbad	);
+        addLine(Bhopal, 	Haveri	);
+        addLine(Bhopal, 	Ernakulam	);
+        addLine(Bhopal, 	Jalna	);
+        addLine(Bhopal, 	ImphalWest	);
+        addLine(Bhopal, 	WestKhasiHils	);
+        addLine(Bhopal, 	Serchhip	);
+        addLine(Bhopal, 	Mokokchung	);
+        addLine(Bhopal, 	Nayagarh	);
+        addLine(Bhopal, 	Ludhiana	);
+        addLine(Bhopal, 	Ajmer	);
+        addLine(Bhopal, 	SouthSikkim	);
+        addLine(Bhopal, 	Namakkal	);
+        addLine(Bhopal, 	Jangaon	);
+        addLine(Bhopal, 	Khowai	);
+        addLine(Bhopal, 	Unnao	);
+        addLine(Bhopal, 	Rudraprayag	);
+        addLine(Bhopal, 	PurbaBurdwan	);
+
+ 
+ 
+        
+        /* addLine(toronto, la);
+        addLine(la, havana); */
+        
+        // Add plane
+        var plane = lineSeries.mapLines.getIndex(0).lineObjects.create();
+        plane.position = 0;
+        plane.width = 48;
+        plane.height = 48;
+        
+        //plane.adapter.add("scale", function(scale, target) {
+        //    return 1 * (1 - (Math.abs(0.5 - target.position)));
+        //})
+        
+        var planeImage = plane.createChild(am4core.Image);
+        planeImage.href = "truck.png";
+        planeImage.scale = 0.08;
+        planeImage.horizontalCenter = "middle";
+        planeImage.verticalCenter = "middle";
+        //planeImage.path = "m2,106h28l24,30h72l-44,-133h35l80,132h98c21,0 21,34 0,34l-98,0 -80,134h-35l43,-133h-71l-24,30h-28l15,-47";
+        planeImage.fill = chart.colors.getIndex(2).brighten(-0.2);
+        planeImage.strokeOpacity = 0;
+        
+        //var shadowPlane = shadowLineSeries.mapLines.getIndex(0).lineObjects.create();
+        //shadowPlane.position = 0;
+        //shadowPlane.width = 48;
+        //shadowPlane.height = 48;
+        
+        //var shadowPlaneImage = shadowPlane.createChild(am4core.Image);
+        //shadowPlaneImage.href = "truck.png"
+        //shadowPlaneImage.scale = 0.05;
+        //shadowPlaneImage.horizontalCenter = "middle";
+        //shadowPlaneImage.verticalCenter = "middle";
+        //shadowPlaneImage.path = "m2,106h28l24,30h72l-44,-133h35l80,132h98c21,0 21,34 0,34l-98,0 -80,134h-35l43,-133h-71l-24,30h-28l15,-47";
+        //shadowPlaneImage.fill = am4core.color("#000");
+        //shadowPlaneImage.strokeOpacity = 0;
+        
+        //shadowPlane.adapter.add("scale", function(scale, target) {
+        //    target.opacity = (0.3 - (Math.abs(0.5 - target.position)));
+        //    return 0.5 - 0.4 * (1 - (Math.abs(0.5 - target.position)));
+        //})
+        
+        // Plane animation
+        var currentLine = 0;
+        var direction = 1;
+        function flyPlane() {
+        
+            // Get current line to attach plane to
+            plane.mapLine = lineSeries.mapLines.getIndex(currentLine);
+            plane.parent = lineSeries;
+            //shadowPlane.mapLine = shadowLineSeries.mapLines.getIndex(currentLine);
+            //shadowPlane.parent = shadowLineSeries;
+            //shadowPlaneImage.rotation = planeImage.rotation;
+        
+            // Set up animation
+            var from, to;
+            var numLines = lineSeries.mapLines.length;
+            if (direction == 1) {
+                from = 0
+                to = 1;
+                if (planeImage.rotation != 0) {
+                    planeImage.animate({ to: 0, property: "rotation" }, 1000).events.on("animationended", flyPlane);
+                    return;
+                }
+            }
+            else {
+                from = 1;
+                to = 0;
+                if (planeImage.rotation != 180) {
+                    planeImage.animate({ to: 180, property: "rotation" }, 1000).events.on("animationended", flyPlane);
+                    return;
+                }
+            }
+        
+            // Start the animation
+            var animation = plane.animate({
+                from: from,
+                to: to,
+                property: "position"
+            }, 5000, am4core.ease.sinInOut);
+            animation.events.on("animationended", flyPlane)
+            /*animation.events.on("animationprogress", function(ev) {
+              var progress = Math.abs(ev.progress - 0.5);
+              //console.log(progress);
+              //planeImage.scale += 0.2;
+            });*/
+        
+            //shadowPlane.animate({
+            //    from: from,
+            //    to: to,
+            //    property: "position"
+            //}, 5000, am4core.ease.sinInOut);
+        
+            // Increment line, or reverse the direction
+            currentLine += direction;
+            if (currentLine < 0) {
+                currentLine = 0;
+                direction = 1;
+            }
+            else if ((currentLine + 1) > numLines) {
+                currentLine = numLines - 1;
+                direction = -1;
+            }
+        
+        }
+        
+        // Go!
+        flyPlane();
+        
+        }); // end am4core.ready()
+        </script>
+        
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="dashboard.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!-- Dark Logo icon -->
+                            <img src="plugins/images/logo-icon.png" alt="homepage" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text px-3" style="color: white; background:#343a40;">
+                                 Vaccine Cold Storage
+                            <!-- dark Logo text -->
+                            <!-- <img src="plugins/images/logo-text.png" alt="homepage" /> -->
+                        </span>
+                    </a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                   
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    
+                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class=" in">
+                            <form role="search" class="app-search d-none d-md-block me-3">
+                                <input type="text" placeholder="Search..." class="form-control mt-0">
+                                <a href="" class="active">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </form>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li>
+                            <a class="profile-pic" href="#">
+                                <img src="plugins/images/users/ninad.jpg" alt="user-img" width="36"
+                                    class="img-circle"><span class="text-white font-medium">Ninad Kanchan</span></a>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li class="sidebar-item pt-2">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
+                                aria-expanded="false">
+                                <i class="fas fa-map" aria-hidden="true"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="stateCentres.html"
+                                aria-expanded="false">
+                                <i class="fas fa-map-signs " aria-hidden="true"></i>
+                                <span class="hide-menu">State Centers</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="locationMap.html"
+                                aria-expanded="false">
+                                <i class="fas fa-map-pin" aria-hidden="true"></i>
+                                <span class="hide-menu">Location Map Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="vaccinationCamp.html"
+                                aria-expanded="false">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <span class="hide-menu">Vaccination Camp Info</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cMap.html"
+                                aria-expanded="false">
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                <span class="hide-menu">Chord Map Of India</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Dashboard</h4>
+                    </div>
+                    
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                
+                <!-- ============================================================== -->
+                <!-- PRODUCTS YEARLY SALES -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Centres Around India</h3>
+                            <!-- <div class="d-md-flex">
+                                <ul class="list-inline d-flex ms-auto">
+                                    <li class="ps-3">
+                                        <h5><i class="fa fa-circle me-1 text-info"></i>Mac</h5>
+                                    </li>
+                                    <li class="ps-3">
+                                        <h5><i class="fa fa-circle me-1 text-inverse"></i>Windows</h5>
+                                    </li>
+                                </ul>
+                            </div> -->
+                            <!-- <div id="ct-visits" style="height: 405px;">
+                                <div class="chartist-tooltip" style="top: -17px; left: -12px;"><span
+                                        class="chartist-tooltip-value">6</span>
+                                </div>
+                            </div> -->
+                            <div id="chartdiv"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Three charts -->
+                <!-- ============================================================== -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total States</h3>
+                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                <li>
+                                    <div id="sparklinedash"><canvas width="67" height="30"
+                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                    </div>
+                                </li>
+                                <li class="ms-auto"><span class="counter text-success">28</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total Population</h3>
+                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                <li>
+                                    <div id="sparklinedash2"><canvas width="67" height="30"
+                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                    </div>
+                                </li>
+                                <li class="ms-auto"><span class="counter text-purple">136.64cr</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total Area Covered</h3>
+                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                <li>
+                                    <div id="sparklinedash3"><canvas width="67" height="30"
+                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                    </div>
+                                </li>
+                                <li class="ms-auto"><span class="counter text-info">3.287 mn km2</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- RECENT SALES -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <div class="d-md-flex mb-3">
+                                <h3 class="box-title mb-0">Tabular Data</h3>
+                                <!-- <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
+                                    <select class="form-select shadow-none row border-top">
+                                        <option>March 2021</option>
+                                        <option>April 2021</option>
+                                        <option>May 2021</option>
+                                        <option>June 2021</option>
+                                        <option>July 2021</option>
+                                    </select>
+                                </div> -->
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0">#</th>
+                                            <th class="border-top-0">State</th>
+                                            <th class="border-top-0">Center</th>
+                                            <th class="border-top-0">Districts</th>
+                                            <th class="border-top-0">Capital</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="txt-oflo">Andhra Pradesh</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">13</td>
+                                            <td><span class="text-success">Hyderabad </span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="txt-oflo">Arunachal Pradesh</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">25</td>
+                                            <td><span class="text-success">Itanagar</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="txt-oflo">Assam</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">34</td>
+                                            <td><span class="text-success">Dispur</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td class="txt-oflo">Bihar </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">38</td>
+                                            <td><span class="text-success">Patna</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td class="txt-oflo">Chhattisgarh</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">28</td>
+                                            <td><span class="text-success">Raipur</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td class="txt-oflo">Chhattisgarh </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">28</td>
+                                            <td><span class="text-success">Raipur </span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td class="txt-oflo">Gujarat </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">33</td>
+                                            <td><span class="text-success">Gandhinagar </span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td class="txt-oflo">Haryana  </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">22</td>
+                                            <td><span class="text-success">Chandigarh </span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td class="txt-oflo">Himachal Pradesh</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">12</td>
+                                            <td><span class="text-success">Shimla</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td class="txt-oflo">Jharkhand</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">24</td>
+                                            <td><span class="text-success">Ranchi</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td class="txt-oflo">Karnataka </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">31</td>
+                                            <td><span class="text-success">Bengaluru </span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td class="txt-oflo">Kerala  </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">14</td>
+                                            <td><span class="text-success">Thiruvananthapuram </span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td class="txt-oflo">Madhya Pradesh  </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">55</td>
+                                            <td><span class="text-success">Bhopal </span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td class="txt-oflo">Maharashtra </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">36</td>
+                                            <td><span class="text-success">Mumbai </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td class="txt-oflo">Manipur </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">16</td>
+                                            <td><span class="text-success">Imphal </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td class="txt-oflo">Meghalaya </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">11</td>
+                                            <td><span class="text-success">Shillong </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td class="txt-oflo">Mizoram</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">11</td>
+                                            <td><span class="text-success">Aizawl </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>18</td>
+                                            <td class="txt-oflo">Nagaland</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">12</td>
+                                            <td><span class="text-success">Kohima  </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>19</td>
+                                            <td class="txt-oflo">Odisha</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">30</td>
+                                            <td><span class="text-success">Bhubaneswar </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>20</td>
+                                            <td class="txt-oflo">Punjab</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">22</td>
+                                            <td><span class="text-success">Chandigarh </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>21</td>
+                                            <td class="txt-oflo">Rajasthan </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">33</td>
+                                            <td><span class="text-success">Jaipur  </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>22</td>
+                                            <td class="txt-oflo">Sikkim </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">4</td>
+                                            <td><span class="text-success">Gangtok</span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>23</td>
+                                            <td class="txt-oflo">Tamil Nadu </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">38</td>
+                                            <td><span class="text-success">Chennai </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>24</td>
+                                            <td class="txt-oflo">Telangana  </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">33</td>
+                                            <td><span class="text-success">Hyderabad </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>25</td>
+                                            <td class="txt-oflo">Tripura</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">8</td>
+                                            <td><span class="text-success">Agartala  </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>26</td>
+                                            <td class="txt-oflo">Uttar Pradesh</td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">75</td>
+                                            <td><span class="text-success">Lucknow </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>27</td>
+                                            <td class="txt-oflo">Uttarakhand </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">13</td>
+                                            <td><span class="text-success">Dehradun </span></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>28</td>
+                                            <td class="txt-oflo">West Bengal </td>
+                                            <td>C</td>
+                                            <td class="txt-oflo">23</td>
+                                            <td><span class="text-success">Kolkata </span></td>
+                                            
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- Recent Comments -->
+                <!-- ============================================================== -->
+                
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center"> Made By Ninad Ish & Nikhil for Vaccine Supply Chain Management
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app-style-switcher.js"></script>
+    <script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.js"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
+    <script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="js/pages/dashboards/dashboard1.js"></script>
+</body>
+
+</html>

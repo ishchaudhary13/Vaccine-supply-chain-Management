@@ -1,0 +1,58 @@
+<html>
+
+
+<head>
+
+
+
+</head>
+
+
+<body>
+        <p>Choose the grocery item</p>
+
+        <label>Grocery Name: </label><input id="grocery"/>
+
+          <button id="submit">Submit</button>
+
+        <label>Output:</label><label id="output"></label>
+
+        <script>
+
+            const order = document.getElementById("grocery");
+
+            const submitButton = document.getElementById("submit");
+
+            var outputString = "";
+
+            var items = []
+
+            submitButton.addEventListener("click",()=>{
+
+            console.log(order.value);
+
+            let output = order.value.split("|");
+
+            console.log(output);
+
+            let totalresult = 0;
+
+            for(let i = 0; i < orders.length;i++){
+
+                let itemDetail = items.push(orders[i].match(/[a-z]+|[^a-z]+/gi));
+
+                outputString = itemDetail[1][4] + " kg " +  itemdetail[0] + "  , "
+
+            totalresult += (pareseInt(itemDetail[1][1]+itemDetail[1][2]) * itemDetail[1][4])
+
+            }
+
+            document.getElementById('output').textContent = "You bought " + outputString  + " and you invested " + totalresult + items[0][1].split(",")
+
+            });
+
+        </script>
+
+</body>
+
+</html>

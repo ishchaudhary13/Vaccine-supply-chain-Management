@@ -1,0 +1,55 @@
+<div>
+ <form action="showInfo.cgi" method="post">
+    Title: 
+    <select name="title">
+    <option value="Mr."> Mr.</option>
+    <option value="Mrs."> Mrs.</option>
+    </select>
+ </form>
+</div>
+<div>
+    <form action="/action_page.php">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname"><br><br>
+      </form>
+</div>
+<div>
+    <p>Date of Birth(dd/mm/yyyy)</p> <input type="date" id="dob" />
+</div>
+<div>
+    <p> Select mode of Journey</p>
+    <br>
+    <form>
+        <input type="radio" id="train" name="mode" value="train">
+        <label for="train">train</label><br>
+        <input type="radio" id="flight" name="mode" value="flight">
+        <label for="flight">flight</label><br>
+        <input type="radio" id="taxi" name="mode" value="taxi">
+        <label for="taxi">taxi</label>
+      </form>
+</div>
+<div>
+    <p>Please select your luggage type:</p>handbag/suite-case/purse
+
+ <input type="checkbox" id="handbag" name="handbag" value="handbag">
+
+ <label for="handbag"> handbag</label><br>
+
+ <input type="checkbox" id="suite-case" name="suite-case" value="suite-case">
+
+ <label for="suite-case"> suite-case</label><br>
+
+ <input type="checkbox" id="purse" name="purse" value="purse">
+
+ <label for="purse"> purse</label><br><br>
+
+ <input type="submit" value="Submit">
+
+</form>
+
+</body>
+
+</html>
+</div>

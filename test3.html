@@ -1,0 +1,23 @@
+<html>
+<head>
+
+</head>
+<body>
+    <p id="para" onclick="colorChange()">This is change of color.</p>
+
+    <script>    
+        var flag = true;
+        function colorChange() {
+            if (flag==true){
+                document.body.style.color = "red";
+                bool = false;    
+            }
+            else if (flag == false){
+                document.body.style.color = "green";
+                bool = true;    
+            }
+            return false;
+        }   
+    </script>
+</body>
+</html>

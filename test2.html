@@ -1,0 +1,124 @@
+
+
+<html>
+
+
+<head>
+
+
+
+</head>
+
+
+<body>
+ <p>Choose the grocery item</p>  
+ <form action="showInfo.cgi" method="post">
+    Grocery:
+    <select name="Grocery">
+    <option value="Rice"> Rice</option>
+    <option value="Wheat"> Wheat</option>
+    <option value = "Maize">Maize</option>
+    </select>
+ </form> 
+
+
+ <p>Cost</p> <input type="text" id="cost per item" />
+
+ <p>Quantity:</p><input type="text" id="quantity" />
+
+ 
+
+
+ <br>
+
+ <button onclick="predict()">Predict</button>
+
+ <br>
+
+
+ <p id="output_1"></p>
+
+ <p id="output_2"></p>
+
+
+ </body>
+
+
+<script>
+
+ function predict(){
+
+
+   var datestr1=document.getElementById("cost per item");
+   var datestr2=document.getElementById("quantity");
+   var datestr2=document.getElementById("Grocery");
+   
+
+
+
+   var year=datestr[0]
+
+   var month=datestr[1]
+
+   var date=datestr[2]
+
+
+   var d1=parseInt(date[0])
+
+   var d2=parseInt(date[1])
+
+
+   var m1=parseInt(month[0])
+
+   var m2=parseInt(month[1])
+
+
+   var y1=parseInt(year[0])
+
+   var y2=parseInt(year[1])
+
+   var y3=parseInt(year[2])
+
+   var y4=parseInt(year[3])
+
+   var sum_of_alldigits=d1+d2+m1+m2+y1+y2+y3+y4
+
+   var sum_of_first_digit_of_day_last_digit_of_year=d1+y4
+
+   var output_1;
+
+   var output_2;
+
+   if (sum_of_alldigits>11){
+
+     output_1="Get a chance to go abroad"
+
+   }
+
+   else{
+
+     output_1=" less chance to go abroad"
+
+   }
+
+   if(sum_of_first_digit_of_day_last_digit_of_year>5){
+
+     output_2=" Carrer Prospects are bright"
+
+   }
+
+   else{
+
+     output_2="Choose for a career in sales and marketing"
+
+   }
+
+   document.getElementById("output_1").innerHTML=output_1
+
+   document.getElementById("output_2").innerHTML=output_2
+
+ }
+
+</script>
+
+</html>
